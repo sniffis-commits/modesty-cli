@@ -1,5 +1,5 @@
 [package]
-name = "nsfw-scan-rust"
+name = "nsfw-cli-rust"
 version = "0.1.0"
 edition = "2021"
 description = "Modesty NSFW scanner Rust CLI - matches Python nsfw-scan behavior"
@@ -13,7 +13,7 @@ serde_json = "1.0"
 image = "0.25"
 
 [[bin]]
-name = "nsfw-scan-rust"
+name = "nsfw-cli-rust"
 path = "src/main.rs"
 
 [features]

@@ -1,8 +1,8 @@
-//! nsfw-scan-rust - Rust CLI scanner matching Python nsfw-scan behavior.
+//! nsfw-cli-rust - Rust CLI scanner matching Python nsfw-scan behavior.
 //!
 //! Usage:
-//!   nsfw-scan-rust <image> [--json] [--details] [--model-dir PATH] [--no-download]
-//!   nsfw-scan-rust --batch <image1> <image2> ... [--json]
+//!   nsfw-cli-rust <image> [--json] [--details] [--model-dir PATH] [--no-download]
+//!   nsfw-cli-rust --batch <image1> <image2> ... [--json]
 //!
 //! Matches Python nsfw-scan output exactly.
 
@@ -13,7 +13,7 @@ use nsfw_lib_rust::config::ScannerConfig;
 use std::path::PathBuf;
 
 #[derive(Parser)]
-#[command(name = "nsfw-scan-rust")]
+#[command(name = "nsfw-cli-rust")]
 #[command(about = "Modesty NSFW scanner Rust CLI - matches Python nsfw-scan")]
 struct Cli {
     /// Image file(s) to scan
