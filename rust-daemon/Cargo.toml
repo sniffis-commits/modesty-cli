@@ -1,0 +1,22 @@
+[package]
+name = "nsfw-scanner-daemon"
+version = "0.1.0"
+edition = "2021"
+description = "Modesty NSFW scanner Native Messaging host (Chrome extension bridge)"
+license = "MIT"
+
+[dependencies]
+nsfw-lib-rust = { path = "../nsfw-lib-rust", features = ["onnx", "download"] }
+clap = { version = "4.5", features = ["derive"] }
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[[bin]]
+name = "nsfw-scanner-daemon"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+opt-level = 3
+strip = true

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modesty_nsfw_cli"
+version = "0.1.0"
+description = "Modesty command-line scanner over the nsfw_scanner library"
+requires-python = ">=3.10"
+dependencies = ["modesty_nsfw_scanner"]
+
+[project.scripts]
+modesty-nsfw-scan = "nsfw_cli:main"
+nsfw-scan = "nsfw_cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["nsfw_cli"]
