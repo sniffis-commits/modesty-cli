@@ -1,46 +1,44 @@
-<p align="center">
-  <img src="assets/logo.svg" alt="Modesty" width="110" height="110">
-</p>
-
-<p align="center">
-  <img src="assets/modesty-brand.svg" alt="Modesty — NSFW protection" width="260">
-</p>
+<p align="center"><img src="assets/logo.svg" alt="modesty-cli" width="110" height="110"></p>
 
 # modesty-cli
 
-> Command-line scanner (Python + Rust)
+> Command-line scanner
 
-`nsfw-scan` / `modesty-nsfw-scan` CLI in `python/`, the Rust CLI in `rust-cli/` (to be renamed `nsfw-cli-rust`), and the Native Messaging daemon in `rust-daemon/`.
+**Part of the [Modesty toolkit](https://github.com/sniffis-commits/modesty-meta)** — see the
+[big README](https://github.com/sniffis-commits/modesty-meta) for the full picture, the rating scale and all repositories.
+
+## What this is
+
+The `modesty-nsfw-scan` / `nsfw-scan` command line tool over the library. Scan a URL, an image, a video or an audio file from a terminal and get a rating, a reason and the problem areas. Includes a Rust CLI and a Native Messaging daemon for browser integration.
+
+## How to
+
+
+```bash
+pip install ./python
+nsfw-scan photo.jpg --details
+nsfw-scan clip.mp4 --skip-file --details      # write a .skp sidecar
+nsfw-scan clip.mp4 --every-frame              # hunt hidden explicit frames
+nsfw-scan https://example.com --details
+```
+- Optional hosted second opinion: `--submit-to-webservice <url>` uploads the
+  file to a webservice `/v1/sample` (the media itself leaves your machine).
+- `--api-url <url> --api-key <key>` only checks a hash against a hosted DB — no upload.
+See `python/README.md` for the full flag list.
+
 
 ## Layout
 
-| Path | What |
+| Path | Purpose |
 |---|---|
 | `python/` | source from the monorepo |
 | `rust-cli/` | source from the monorepo |
 | `rust-daemon/` | source from the monorepo |
 
-## Details
+## More
 
-| | |
-|---|---|
-| Language | Python + Rust |
-| License | MIT |
-| Website | [https://modesty.cia.org.il](https://modesty.cia.org.il) |
-| Repository map | [REPO_MAP.md](https://github.com/sniffis-commits/nfsw_scanner/blob/main/docs/REPO_MAP.md) |
-| Split from | private monorepo `sniffis-commits/nfsw_scanner` |
-
-## Quick start
-
-```sh
-pip install ./python && nsfw-scan photo.jpg --details
-```
-
-## About Modesty
-
-Privacy-first NSFW scanner. Local scanning by default; uploads are opt-in.
-These public repos are split from a private monorepo — see the
-[repository map](https://github.com/sniffis-commits/nfsw_scanner/blob/main/docs/REPO_MAP.md) for the full local-to-GitHub naming. Model weights are
-in `modesty-models`; the free domain DB release is in `modesty-db`.
-
-Third-party data/model terms are on the [site's license page](https://modesty.cia.org.il/?p=licenses).
+- Full overview and other repos: [modesty-meta](https://github.com/sniffis-commits/modesty-meta)
+- Website: [https://modesty.cia.org.il](https://modesty.cia.org.il)
+- Model weights: [modesty-models](https://github.com/sniffis-commits/modesty-models)
+- Licence: MIT (see `LICENSE`). Third-party data/model terms are on the
+  [site's licence page](https://modesty.cia.org.il/?p=licenses).
